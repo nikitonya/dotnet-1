@@ -43,8 +43,9 @@
 
 | Пакет | Документация | Назначение |
 | --- | --- | --- |
-| [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/5.0.2) | [ServiceCollection](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.servicecollection?view=dotnet-plat-ext-5.0) | DI-контейнер |
-| [Spectre.Console](https://www.nuget.org/packages/Spectre.Console) | [https://spectreconsole.net/](https://spectreconsole.net/) | CLI-фреймворк |
+| [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/5.0.2) | [Dependency injection in .NET](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) | DI-контейнер |
+| [Spectre.Console](https://www.nuget.org/packages/Spectre.Console) | [https://spectreconsole.net](https://spectreconsole.net) | CLI-фреймворк |
+| [xunit](https://www.nuget.org/packages/xunit.runner.visualstudio)<br/>[xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio) | [https://xunit.net](https://xunit.net) | Модульное тестирование (опционально) |
 
 **Сериализация данных**: [System.Xml.Serialization](https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-5.0)
 
