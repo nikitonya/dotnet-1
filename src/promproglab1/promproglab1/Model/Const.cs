@@ -3,18 +3,21 @@
     internal class Const : IFunction
     {
         private double _a;
+
+        public double A
+        {
+            get { return _a; }
+            set { _a = value; }
+        }
+
         public Const(double a)
         {
             _a = a;
         }
 
-        public Const()
-        {
-        }
-
         public double GetValue(double x)
         {
-            return _a;
+            return A;
         }
 
         public IFunction GetDerivative()
