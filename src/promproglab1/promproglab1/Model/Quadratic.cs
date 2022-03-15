@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace promproglab1.Model
 {
@@ -19,14 +15,15 @@ namespace promproglab1.Model
             _c = c;
         }
 
-        public double GetDerivative(double x)
-        {
-            return 2 * _a * x + _b; 
-        }
-
         public double GetValue(double x)
         {
-            return _a * Math.Pow(x, 2) + _b * x + _c;
+            return _a * x * x + _b * x + _c;
         }
+        public IFunction GetDerivative()
+        {
+            return new LinearFunction(2 * _a, _b);
+        }
+
+        
     }
 }

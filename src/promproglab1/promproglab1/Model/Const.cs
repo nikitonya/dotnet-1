@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace promproglab1.Model
+﻿namespace promproglab1.Model
 {
     internal class Const : IFunction
     {
@@ -23,9 +17,9 @@ namespace promproglab1.Model
             return _a;
         }
 
-        public double GetDerivative(double x)
+        public IFunction GetDerivative()
         {
-            return 0;
+            return new Const(0);
         }
 
 

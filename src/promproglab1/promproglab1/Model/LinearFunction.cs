@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace promproglab1.Model
+﻿namespace promproglab1.Model
 {
     internal class LinearFunction : IFunction
     {
@@ -22,9 +16,9 @@ namespace promproglab1.Model
             return _k * x + _b;
         }
 
-        public double GetDerivative(double x)
+        public IFunction GetDerivative()
         {
-            return _k;
+            return new Const(_k);
         }
     }
 }
