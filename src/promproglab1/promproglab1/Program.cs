@@ -7,13 +7,15 @@ namespace promproglab1
     {
         static void Main(string[] args)
         {
-            Figure figure = new Rectangle
-            {
-                Point1 = new Point(1, 1),
-                Point2 = new Point(2, 2)
-            };
+            var con = new Const(5);
+            Console.WriteLine(con.GetValue(10));
 
-            Console.WriteLine(figure);
+            var linfunc = new LinearFunction(5, 7);
+            Console.WriteLine(linfunc.GetValue(5));
+
+            var sin = new Sinus();
+            Console.WriteLine(sin.GetDerivative(5));
+
         }
     }
 }
