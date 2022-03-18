@@ -33,5 +33,10 @@
         {
             return ($"y = {K}*x+{B}");
         }
+
+        public override int GetHashCode()
+        {
+            return K.GetHashCode() ^ B.GetHashCode();
+        }
     }
 }

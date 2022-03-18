@@ -32,5 +32,10 @@ namespace promproglab1.Model
         {
             return ($"y = Sin({A})");
         }
+
+        public override int GetHashCode()
+        {
+            return A.GetHashCode();
+        }
     }
 }

@@ -35,5 +35,10 @@ namespace promproglab1.Model
         {
             return ($"y = {A}*x*x+{B}*x+{C}");
         }
+
+        public override int GetHashCode()
+        {
+            return A.GetHashCode() ^ B.GetHashCode() ^ C.GetHashCode();
+        }
     }
 }

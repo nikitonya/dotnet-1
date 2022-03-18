@@ -30,5 +30,10 @@
         {
             return ($"y = {A}");
         }
+
+        public override int GetHashCode()
+        {
+            return A.GetHashCode();
+        }
     }
 }

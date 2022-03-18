@@ -33,5 +33,10 @@ namespace promproglab1.Model
         {
             return ($"y = Cos({A})");
         }
+
+        public override int GetHashCode()
+        {
+            return A.GetHashCode();
+        }
     }
 }

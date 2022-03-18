@@ -10,5 +10,7 @@
 
         public abstract override string ToString();
 
+        public abstract override int GetHashCode();
+        
     }
 }

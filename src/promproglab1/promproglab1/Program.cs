@@ -7,7 +7,7 @@ namespace promproglab1
     {
         static void Main(string[] args)
         {
-            var con = new Const(5);
+            var con = new Const(9);
             var con2 = new Const(6);
             Console.WriteLine(con.Equals(con2));
 
@@ -32,6 +32,14 @@ namespace promproglab1
             Console.WriteLine(quad.ToString());
             Console.WriteLine(sin.ToString());
             Console.WriteLine(cos.ToString());
+
+            Console.WriteLine(con.GetHashCode());
+            Console.WriteLine(lin.GetHashCode());
+            Console.WriteLine(quad.GetHashCode());
+            Console.WriteLine(sin.GetHashCode());
+            Console.WriteLine(cos.GetHashCode());
+
+
         }
 
     }
