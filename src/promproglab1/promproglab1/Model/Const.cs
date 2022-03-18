@@ -1,31 +1,34 @@
 ﻿namespace promproglab1.Model
 {
-    internal class Const : IFunction
+    class Const : Function
     {
-        private double _a;
-
-        public double A
-        {
-            get { return _a; }
-            set { _a = value; }
-        }
+        public double A { get; init; }
 
         public Const(double a)
         {
-            _a = a;
+            A = a;
         }
 
-        public double GetValue(double x)
+        public override double GetValue(double x)
         {
             return A;
         }
 
-        public IFunction GetDerivative()
+        public override Function GetDerivative()
         {
             return new Const(0);
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is not Const other)
+                return false;  
+            return A == other.A;
+        }
 
-
+        public override string ToString()
+        {
+            return ($"y = {A}");
+        }
     }
 }

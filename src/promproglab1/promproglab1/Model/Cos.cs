@@ -2,28 +2,36 @@
 
 namespace promproglab1.Model
 {
-    internal class Cos : IFunction
+    internal class Cos : Function
     {
-        private double _a;
-        public double A
-        {
-            get { return _a; }
-            set { _a = value; }
-        }
+        public double A { get; init; }
 
         public Cos(double a)
         {
-            _a = a;
+            A = a;
         }
 
-        public IFunction GetDerivative()
+        public override Function GetDerivative()
         {
             return new Sin(-1);
         }
 
-        public double GetValue(double x)
+        public override double GetValue(double x)
         {
             return Math.Cos(x);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is not Cos other)
+                return false;
+            return A == other.A;
+            
+        }
+
+        public override string ToString()
+        {
+            return ($"y = Cos({A})");
         }
     }
 }

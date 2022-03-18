@@ -2,28 +2,35 @@
 
 namespace promproglab1.Model
 {
-    internal class Sin : IFunction
+    class Sin : Function
     {
-        private double _a;
-        public double A
-        {
-            get { return _a; }
-            set { _a = value; }s
-        }
+        public double A { get; init; }
 
         public Sin(double a)
         {
-            _a = a;
+            A = a;
         }
 
-        public IFunction GetDerivative()
+        public override Function GetDerivative()
         {
             return new Cos(1);
         }
 
-        public double GetValue(double x)
+        public override double GetValue(double x)
         {
             return Math.Sin(x);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is not Sin other)
+                return false;
+            return A == other.A;
+        }
+
+        public override string ToString()
+        {
+            return ($"y = Sin({A})");
         }
     }
 }

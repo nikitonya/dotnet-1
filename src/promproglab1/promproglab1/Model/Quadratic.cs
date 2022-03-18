@@ -2,45 +2,38 @@
 
 namespace promproglab1.Model
 {
-    internal class Quadratic : IFunction
+    internal class Quadratic : Function
     {
-        private double _a;
-        public double A
-        {
-            get { return _a; }
-            set { _a = value; }
-        }
-
-        private double _b;
-        public double B
-        {
-            get { return _b; }
-            set { _b = value; }
-        }
-
-        private double _c;
-        public double C
-        {
-            get { return _c; }
-            set { _c = value; }
-        }
+        public double A { get; init; }
+        public double B { get; init; }
+        public double C { get; init; }
 
         public Quadratic(double a, double b, double c)
         {
-            _a = a;
-            _b = b;
-            _c = c;
+            A = a;
+            B = b;
+            C = c;
         }
 
-        public double GetValue(double x)
+        public override double GetValue(double x)
         {
             return A * x * x + B * x + C;
         }
-        public IFunction GetDerivative()
+        public override Function GetDerivative()
         {
             return new LinearFunction(2 * A, B);
         }
 
-        
+        public override bool Equals(object obj)
+        {
+            if (obj is not Quadratic other)
+                return false;
+            return A == other.A && B == other.B && C == other.C;
+        }
+
+        public override string ToString()
+        {
+            return ($"y = {A}*x*x+{B}*x+{C}");
+        }
     }
 }
