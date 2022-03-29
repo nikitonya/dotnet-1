@@ -30,7 +30,7 @@ namespace promproglab1.Model
 
         public override string ToString()
         {
-            return ($"y = Sin({A})");
+            return ($"y = {A}*Sin(X)");
         }
 
         public override int GetHashCode()

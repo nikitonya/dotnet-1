@@ -31,7 +31,7 @@ namespace promproglab1.Model
 
         public override string ToString()
         {
-            return ($"y = Cos({A})");
+            return ($"y = {A}*Cos(X)");
         }
 
         public override int GetHashCode()

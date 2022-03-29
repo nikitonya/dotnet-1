@@ -18,7 +18,7 @@
         {
             return new Const(0);
         }
-
+        
         public override bool Equals(object obj)
         {
             if (obj is not Const other)
@@ -30,7 +30,7 @@
         {
             return ($"y = {A}");
         }
-
+        
         public override int GetHashCode()
         {
             return A.GetHashCode();
