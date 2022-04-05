@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace promproglab1.Repositories
 {
-    internal class XmlFunctionsRepository
+    internal class XmlFunctionsRepository : IXmlFunctionsRepository
     {
         private List<Function> _functions;
 
