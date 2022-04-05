@@ -21,6 +21,7 @@ namespace promproglab1.Commands
         {
             var index = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Введите индекс, по которому нужно удалить объект = [/]"));
             _functionsRepository.RemoveFunction(index);
+            AnsiConsole.MarkupLine("Deletion completed successfully");
             return 0;
         }
     }

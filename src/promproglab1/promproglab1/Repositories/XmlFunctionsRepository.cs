@@ -55,7 +55,7 @@ namespace promproglab1.Repositories
             {
                 if (function == null)
                     throw new ArgumentNullException(nameof(function));
-
+                
                 if (index < 0 || index > _functions.Count)
                 {
                     throw new ArgumentOutOfRangeException(nameof(index));
@@ -84,7 +84,6 @@ namespace promproglab1.Repositories
                 }
                 _functions.RemoveAt(index);
                 WriteToFile();
-                AnsiConsole.MarkupLine("Deletion completed successfully");
             }
             else
             {

@@ -51,10 +51,10 @@ namespace promproglab1.Commands
                 AnsiConsole.MarkupLine($"Неизвестный тип фигуры: {funcType}");
                 return -1;
             }
-            var index = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Введите индекс, по которому нужно вставить объект = [/]"));
-            
-            _functionsRepository.InsertFunction(index, function);
 
+            var index = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Введите индекс, по которому нужно вставить объект = [/]"));
+            _functionsRepository.InsertFunction(index, function);
+            AnsiConsole.MarkupLine($"The insertion of the object at index has been completed successfully!");
             return 0;
         }
     }

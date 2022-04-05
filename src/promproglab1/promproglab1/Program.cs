@@ -23,6 +23,7 @@ namespace promproglab1
                 config.AddCommand<PrintAllFunctionsCommand>("print");
                 config.AddCommand<InsertFunctionCommand>("Insert");
                 config.AddCommand<RemoveFunctionCommand>("Remove");
+                config.AddCommand<RemoveAllFunctionCommand>("RemoveAll");
             });
 
             app.Run(args);
