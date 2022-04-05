@@ -1,4 +1,5 @@
 ﻿using promproglab1.Model;
+using promproglab1.Repositories;
 using Spectre.Console;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,7 @@ namespace promproglab1
     {
         static void Main(string[] args)
         {
-            List<Function> functions = new List<Function>();
+            var functionRepository = new XmlFunctionsRepository();
             AnsiConsole.WriteLine("Программа");
             
             var ind = 0;
@@ -77,28 +78,28 @@ namespace promproglab1
                 var index = 0;
                 if (ind == 0)
                 {
-                    functions.Add(function);
+                    functionRepository.AddFunction(function);
                 }
                 else
                 {
                     index = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Введите индекс, по которому нужно вставить объект = [/]"));
-                    functions.Insert(index, function);
+                    functionRepository.InsertFunction(index, function);
                 }
                 
 
-                foreach (Function func in functions)
-                {
-                    table.AddRow(func.GetType().Name, func.ToString(),
-                        func.GetValue(x).ToString(), func.GetDerivative().ToString());
-                    ind++;
-                }
-                AnsiConsole.Write(table);
+                //foreach (Function func in functionRepository)
+                //{
+                //    table.AddRow(func.GetType().Name, func.ToString(),
+                //        func.GetValue(x).ToString(), func.GetDerivative().ToString());
+                //    ind++;
+                //}
+                //AnsiConsole.Write(table);
 
-                var xmlSerializer = new XmlSerializer(typeof(List<Function>));
-                using (var fileStream = new FileStream("file.xml", FileMode.Create))
-                {
-                    xmlSerializer.Serialize(fileStream, functions);
-                }
+                //var xmlSerializer = new XmlSerializer(typeof(List<Function>));
+                //using (var fileStream = new FileStream("file.xml", FileMode.Create))
+                //{
+                //    xmlSerializer.Serialize(fileStream, functionRepository);
+                //}
 
                 var cont = AnsiConsole.Prompt(new SelectionPrompt<string>()
                     .Title("Что пожелаете?")
