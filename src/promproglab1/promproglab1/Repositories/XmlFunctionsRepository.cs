@@ -9,13 +9,13 @@ using System.Xml.Serialization;
 
 namespace promproglab1.Repositories
 {
-    internal class XmlFunctionsRepository : IXmlFunctionsRepository
+     public class XmlFunctionsRepository : IFunctionsRepository
     {
         private List<Function> _functions;
 
         private const string StorageFileName = "functions.xml";
 
-        public void ReadFromFile()
+        private void ReadFromFile()
         {
             if (_functions != null) return;
 
@@ -71,5 +71,15 @@ namespace promproglab1.Repositories
             WriteToFile();
         }
 
+        void IFunctionsRepository.ReadFromFile()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Function> GetFunctions()
+        {
+            ReadFromFile();
+            return _functions;
+        }
     }
 }
