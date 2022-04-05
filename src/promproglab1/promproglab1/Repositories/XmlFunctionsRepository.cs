@@ -15,7 +15,7 @@ namespace promproglab1.Repositories
 
         private const string StorageFileName = "functions.xml";
 
-        private void ReadFromFile()
+        public void ReadFromFile()
         {
             if (_functions != null) return;
 
@@ -27,7 +27,7 @@ namespace promproglab1.Repositories
 
             var xmlSerializer = new XmlSerializer(typeof(List<Function>));
             using var fileStream = new FileStream(StorageFileName, FileMode.Open);
-            xmlSerializer.Serialize(fileStream, _functions);
+            _functions = (List<Function>)xmlSerializer.Deserialize(fileStream);
         }
 
         private void WriteToFile()
@@ -37,7 +37,7 @@ namespace promproglab1.Repositories
             xmlSerializer.Serialize(fileStream, _functions);
         }
 
-        public void AddFunction (Function function)
+        public void AddFunction(Function function)
         {
             if (function == null)
                 throw new ArgumentNullException(nameof(function));
@@ -61,6 +61,13 @@ namespace promproglab1.Repositories
         {
             ReadFromFile();
             _functions.RemoveAt(index);
+            WriteToFile();
+        }
+
+        public void RemoveAllFunction()
+        {
+            ReadFromFile();
+            _functions.RemoveRange(0, _functions.Count);
             WriteToFile();
         }
 

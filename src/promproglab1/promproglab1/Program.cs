@@ -76,16 +76,13 @@ namespace promproglab1
                 
                 var x = AnsiConsole.Prompt(new TextPrompt<double>("[blue]Введите число X = [/]"));
                 var index = 0;
-                if (ind == 0)
-                {
-                    functionRepository.AddFunction(function);
-                }
-                else
-                {
-                    index = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Введите индекс, по которому нужно вставить объект = [/]"));
-                    functionRepository.InsertFunction(index, function);
-                }
-                
+
+                //index = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Введите индекс, по которому нужно вставить объект = [/]"));
+                functionRepository.AddFunction(function);
+                functionRepository.RemoveAllFunction();
+
+
+
 
                 //foreach (Function func in functionRepository)
                 //{
@@ -100,7 +97,7 @@ namespace promproglab1
                 //{
                 //    xmlSerializer.Serialize(fileStream, functionRepository);
                 //}
-
+      
                 var cont = AnsiConsole.Prompt(new SelectionPrompt<string>()
                     .Title("Что пожелаете?")
                     .AddChoices("Продолжить", "Выйти из программы"));
