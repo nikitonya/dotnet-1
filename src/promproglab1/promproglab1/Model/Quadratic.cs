@@ -2,12 +2,13 @@
 
 namespace promproglab1.Model
 {
-    internal class Quadratic : Function
+    public class Quadratic : Function
     {
         public double A { get; init; }
         public double B { get; init; }
         public double C { get; init; }
 
+        public Quadratic() { }
         public Quadratic(double a, double b, double c)
         {
             A = a;

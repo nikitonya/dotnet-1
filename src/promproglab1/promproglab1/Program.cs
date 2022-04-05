@@ -1,7 +1,8 @@
 ﻿using promproglab1.Model;
 using Spectre.Console;
-using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace promproglab1
 {
@@ -9,47 +10,33 @@ namespace promproglab1
     {
         static void Main(string[] args)
         {
-            var con = new Const(9);
-            //var con2 = new Const(6);
-            //Console.WriteLine(con.Equals(con2));
-
-            //var lin = new LinearFunction(5, 7);
-            //var lin2 = new LinearFunction(6, 7);
-            //Console.WriteLine(lin.Equals(lin2));
-
-            //var quad = new Quadratic(1, 2, 3);
-            //var quad2 = new Quadratic(1, 2, 3);
-            //Console.WriteLine(quad.Equals(quad2));
-
-            //var sin = new Sin(5);
-            //var sin2 = new Sin(5);
-            //Console.WriteLine(sin.Equals(sin2));
-
-            //var cos = new Cos(8);
-            //var cos2 = new Cos(7);
-            //Console.WriteLine(cos.Equals(cos2));
-
-            //Console.WriteLine(con.ToString());
-            //Console.WriteLine(lin.ToString());
-            //Console.WriteLine(quad.ToString());
-            //Console.WriteLine(sin.ToString());
-            //Console.WriteLine(cos.ToString());
-
-            //Console.WriteLine(con.GetHashCode());
-            //Console.WriteLine(lin.GetHashCode());
-            //Console.WriteLine(quad.GetHashCode());
-            //Console.WriteLine(sin.GetHashCode());
-            //Console.WriteLine(cos.GetHashCode());
-
             List<Function> functions = new List<Function>();
+            AnsiConsole.WriteLine("Программа");
+            
+            var ind = 0;
 
             while (true)
             {
-                var fucnType = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                //var menu = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                //    .Title("Основные функции: ")
+                //    .AddChoices("Создать объект", "Удалить объект", "Удалить все объекты"
+                //    , "Сравнить два объекта", "Вывести коллекцию на экран"));
+
+                //String podmenu = menu switch
+                //{
+                //    "Создать объект" => AnsiConsole.Prompt(new SelectionPrompt<string>()
+                //    .Title("Выберите тип функции: ")
+                //    .AddChoices("Константа", "Линейная функция", "Квадратичная функция", "Синус", "Косинус")),
+
+                //};
+
+                var funcType = AnsiConsole.Prompt(new SelectionPrompt<string>()
                     .Title("Выберите тип функции: ")
                     .AddChoices("Константа", "Линейная функция", "Квадратичная функция", "Синус", "Косинус"));
 
-                Function function = fucnType switch
+
+
+                Function function = funcType switch
                 {
                     "Константа" => new Const(
                         AnsiConsole.Prompt(new TextPrompt<double>("[blue]Число a[/]"))
@@ -74,27 +61,50 @@ namespace promproglab1
 
                 if (function == null)
                 {
-                    AnsiConsole.MarkupLine($"Неизвестный тип фигуры: {fucnType}");
+                    AnsiConsole.MarkupLine($"Неизвестный тип фигуры: {funcType}");
                 }
-                functions.Add(function);
 
                 var table = new Table();
+                //table.AddColumn("Index");
                 table.AddColumn("Type of function");
                 table.AddColumn("View");
+                //table.AddColumn("X");
+                table.AddColumn("Value");
                 table.AddColumn("Derivative");
+
+                
+                var x = AnsiConsole.Prompt(new TextPrompt<double>("[blue]Введите число X = [/]"));
+                var index = 0;
+                if (ind == 0)
+                {
+                    functions.Add(function);
+                }
+                else
+                {
+                    index = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Введите индекс, по которому нужно вставить объект = [/]"));
+                    functions.Insert(index, function);
+                }
                 
 
                 foreach (Function func in functions)
                 {
-                    table.AddRow(func.GetType().Name, func.ToString(), func.GetDerivative().ToString());
+                    table.AddRow(func.GetType().Name, func.ToString(),
+                        func.GetValue(x).ToString(), func.GetDerivative().ToString());
+                    ind++;
                 }
                 AnsiConsole.Write(table);
+
+                var xmlSerializer = new XmlSerializer(typeof(List<Function>));
+                using (var fileStream = new FileStream("file.xml", FileMode.Create))
+                {
+                    xmlSerializer.Serialize(fileStream, functions);
+                }
 
                 var cont = AnsiConsole.Prompt(new SelectionPrompt<string>()
                     .Title("Что пожелаете?")
                     .AddChoices("Продолжить", "Выйти из программы"));
 
-                if(cont == "Выйти из программы")
+                if (cont == "Выйти из программы")
                 {
                     break;
                 }

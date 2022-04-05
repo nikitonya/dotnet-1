@@ -1,11 +1,12 @@
 ﻿namespace promproglab1.Model
 {
-    internal class LinearFunction : Function
+    public class LinearFunction : Function
     {
 
         public double K { get; init; }
         public double B { get; init; }
 
+        public LinearFunction() { }
         public LinearFunction(double k, double b)
         {
             K = k;

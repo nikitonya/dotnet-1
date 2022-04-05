@@ -2,10 +2,11 @@
 
 namespace promproglab1.Model
 {
-    class Sin : Function
+    public class Sin : Function
     {
         public double A { get; init; }
 
+        public Sin() { }
         public Sin(double a)
         {
             A = a;
@@ -13,12 +14,12 @@ namespace promproglab1.Model
 
         public override Function GetDerivative()
         {
-            return new Cos(1);
+            return new Cos(A);
         }
 
         public override double GetValue(double x)
         {
-            return Math.Sin(x);
+            return A*Math.Sin(x);
         }
 
         public override bool Equals(object obj)

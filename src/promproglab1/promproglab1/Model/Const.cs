@@ -1,9 +1,10 @@
 ﻿namespace promproglab1.Model
 {
-    class Const : Function
+    public class Const : Function
     {
         public double A { get; init; }
 
+        public Const() { }
         public Const(double a)
         {
             A = a;

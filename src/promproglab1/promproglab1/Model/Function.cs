@@ -1,6 +1,13 @@
-﻿namespace promproglab1.Model
+﻿using System.Xml.Serialization;
+
+namespace promproglab1.Model
 {
-    abstract class Function
+    [XmlInclude(typeof(Const))]
+    [XmlInclude(typeof(LinearFunction))]
+    [XmlInclude(typeof(Quadratic))]
+    [XmlInclude(typeof(Sin))]
+    [XmlInclude(typeof(Cos))]
+    public abstract class Function
     {
         public abstract double GetValue(double x);
 
