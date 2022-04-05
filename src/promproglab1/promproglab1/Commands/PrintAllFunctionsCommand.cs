@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace promproglab1.Commands
 {
-    public class GetAllFunctionsCommand : Command<GetAllFunctionsCommand.GetAllFunctionsSettings>
+    public class PrintAllFunctionsCommand : Command<PrintAllFunctionsCommand.GetAllFunctionsSettings>
     {
         public class GetAllFunctionsSettings : CommandSettings
         {
@@ -14,7 +14,7 @@ namespace promproglab1.Commands
         }
 
         private readonly IFunctionsRepository _functionsRepository;
-        public GetAllFunctionsCommand(IFunctionsRepository functionsRepository)
+        public PrintAllFunctionsCommand(IFunctionsRepository functionsRepository)
         {
             _functionsRepository = functionsRepository; 
         }

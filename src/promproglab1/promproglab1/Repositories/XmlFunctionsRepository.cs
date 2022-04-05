@@ -1,4 +1,5 @@
 ﻿using promproglab1.Model;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -60,10 +61,8 @@ namespace promproglab1.Repositories
                     throw new ArgumentOutOfRangeException(nameof(index));
                 }
 
-
                 _functions.Insert(index, function);
                 WriteToFile();
-                
             }
             else
             {
@@ -77,8 +76,20 @@ namespace promproglab1.Repositories
         public void RemoveFunction(int index)
         {
             ReadFromFile();
-            _functions.RemoveAt(index);
-            WriteToFile();
+            if (_functions != null)
+            {
+                if (index < 0 || index > _functions.Count)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(index));
+                }
+                _functions.RemoveAt(index);
+                WriteToFile();
+                AnsiConsole.MarkupLine("Deletion completed successfully");
+            }
+            else
+            {
+                throw new ArgumentException("The list is empty");
+            }
         }
 
         public void RemoveAllFunction()
