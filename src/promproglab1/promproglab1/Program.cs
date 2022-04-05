@@ -39,6 +39,7 @@ namespace promproglab1
             //    //    .AddChoices("Константа", "Линейная функция", "Квадратичная функция", "Синус", "Косинус")),
             //    //}
             //    //index = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Введите индекс, по которому нужно вставить объект = [/]"));               
+
             //    //var xmlSerializer = new XmlSerializer(typeof(List<Function>));
             //    //using (var fileStream = new FileStream("file.xml", FileMode.Create))
             //    //{
@@ -63,4 +64,3 @@ namespace promproglab1
 
     }
 
-}

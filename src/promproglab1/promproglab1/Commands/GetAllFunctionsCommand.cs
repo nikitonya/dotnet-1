@@ -32,7 +32,6 @@ namespace promproglab1.Commands
 
 
             var x = AnsiConsole.Prompt(new TextPrompt<double>("[blue]Введите число X = [/]"));
-            var index = 0;
 
             foreach (Function func in functions)
             {
