@@ -49,13 +49,30 @@ namespace promproglab1.Repositories
 
         public void InsertFunction(int index, Function function)
         {
-            if (function == null)
-                throw new ArgumentNullException(nameof(function));
-
             ReadFromFile();
-            _functions.Insert(index, function);
-            WriteToFile();
+            if (_functions != null)
+            {
+                if (function == null)
+                    throw new ArgumentNullException(nameof(function));
+
+                if (index < 0 || index > _functions.Count)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(index));
+                }
+
+
+                _functions.Insert(index, function);
+                WriteToFile();
+                
+            }
+            else
+            {
+                ReadFromFile();
+                _functions.Add(function);
+                WriteToFile();
+            }
         }
+
 
         public void RemoveFunction(int index)
         {
@@ -69,11 +86,6 @@ namespace promproglab1.Repositories
             ReadFromFile();
             _functions.RemoveRange(0, _functions.Count);
             WriteToFile();
-        }
-
-        void IFunctionsRepository.ReadFromFile()
-        {
-            throw new NotImplementedException();
         }
 
         public List<Function> GetFunctions()

@@ -7,7 +7,6 @@ namespace promproglab1.Repositories
     {
         void AddFunction(Function function);
         void InsertFunction(int index, Function function);
-        void ReadFromFile();
         void RemoveAllFunction();
         void RemoveFunction(int index);
         List<Function> GetFunctions();
