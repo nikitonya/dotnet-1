@@ -103,5 +103,26 @@ namespace promproglab1.Repositories
             ReadFromFile();
             return _functions;
         }
+
+        public bool ComparisonFunction(int index1, int index2)
+        {
+            ReadFromFile();
+            
+
+            if (_functions[index1] != null && _functions[index2] != null)
+            {
+                if (_functions[index1].GetType() == _functions[index2].GetType())
+                {
+                    return _functions[index1].Equals(_functions[index2]);
+                }
+                else
+                    throw new ArgumentException("Different types of functions");
+            }
+            else
+                throw new ArgumentException("Index is out of range");
+
+        }
+
+        
     }
 }

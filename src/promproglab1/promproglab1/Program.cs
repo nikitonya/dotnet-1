@@ -24,6 +24,7 @@ namespace promproglab1
                 config.AddCommand<InsertFunctionCommand>("Insert");
                 config.AddCommand<RemoveFunctionCommand>("Remove");
                 config.AddCommand<RemoveAllFunctionCommand>("RemoveAll");
+                config.AddCommand<ComparisonFunctionCommand>("Comparison");
             });
 
             app.Run(args);

@@ -10,5 +10,7 @@ namespace promproglab1.Repositories
         void RemoveAllFunction();
         void RemoveFunction(int index);
         List<Function> GetFunctions();
+
+        bool ComparisonFunction(int index1, int index2);
     }
 }
