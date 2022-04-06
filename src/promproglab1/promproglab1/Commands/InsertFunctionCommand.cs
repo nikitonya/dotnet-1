@@ -53,9 +53,9 @@ namespace promproglab1.Commands
                 return -1;
             }
 
-            var index = AnsiConsole.Prompt(new TextPrompt<int>($"[deepskyblue1]Enter the index by which you want to insert the object = [/]"));
+            var index = AnsiConsole.Prompt(new TextPrompt<int>("[deepskyblue1]Enter the index by which you want to insert the object = [/]"));
             _functionsRepository.InsertFunction(index, function);
-            AnsiConsole.MarkupLine($"[green1]The insertion of the object at index has been completed successfully![/]");
+            AnsiConsole.MarkupLine("[green1]The insertion of the object at index has been completed successfully![/]");
             return 0;
         }
     }

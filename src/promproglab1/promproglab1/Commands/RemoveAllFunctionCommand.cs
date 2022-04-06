@@ -1,5 +1,4 @@
-﻿using promproglab1.Model;
-using promproglab1.Repositories;
+﻿using promproglab1.Repositories;
 using Spectre.Console;
 using Spectre.Console.Cli;
 using System.Diagnostics.CodeAnalysis;

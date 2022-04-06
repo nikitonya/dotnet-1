@@ -25,14 +25,14 @@
 
         public override bool Equals(object obj)
         {
-            if (obj is not LinearFunction other)
-            return false;
+            if (obj is not LinearFunction other) 
+                return false;
             return K == other.K && B == other.B;
         }
 
         public override string ToString()
         {
-            return ($"y = {K}*x+{B}");
+            return $"y = {K}*x+{B}";
         }
 
         public override int GetHashCode()

@@ -4,7 +4,7 @@ using promproglab1.Commands;
 using promproglab1.Repositories;
 using Spectre.Console.Cli;
 
-namespace promproglab1
+namespace PromProgLab1
 {
     internal class Program
     {
@@ -27,7 +27,7 @@ namespace promproglab1
                 config.AddCommand<MinFunctionCommand>("min");
             });
             app.Run(args);
-            } 
         }
     }
+}
 

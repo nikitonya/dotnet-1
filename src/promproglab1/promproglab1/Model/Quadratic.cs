@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace promproglab1.Model
+﻿namespace promproglab1.Model
 {
     public class Quadratic : Function
     {
@@ -34,7 +32,7 @@ namespace promproglab1.Model
 
         public override string ToString()
         {
-            return ($"y = {A}*x*x+{B}*x+{C}");
+            return $"y = {A}*x*x+{B}*x+{C}";
         }
 
         public override int GetHashCode()

@@ -29,7 +29,7 @@
 
         public override string ToString()
         {
-            return ($"y = {A}");
+            return $"y = {A}";
         }
         
         public override int GetHashCode()
