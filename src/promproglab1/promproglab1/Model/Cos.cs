@@ -19,7 +19,7 @@ namespace PromProgLab1.Model
 
         public override double GetValue(double x)
         {
-            return A*Math.Cos(x);
+            return A * Math.Cos(x);
         }
 
         public override bool Equals(object obj)
@@ -27,7 +27,7 @@ namespace PromProgLab1.Model
             if (obj is not Cos other)
                 return false;
             return A == other.A;
-            
+
         }
 
         public override string ToString()

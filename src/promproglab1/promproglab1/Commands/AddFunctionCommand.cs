@@ -14,7 +14,7 @@ namespace PromProgLab1.Commands
 
         public AddFunctionCommand(IFunctionsRepository functionsRepository)
         {
-            _functionsRepository = functionsRepository; 
+            _functionsRepository = functionsRepository;
         }
 
         public override int Execute([NotNull] CommandContext context, [NotNull] AddFunctionSettings settings)
@@ -52,13 +52,13 @@ namespace PromProgLab1.Commands
                 AnsiConsole.MarkupLine($"[red1]Unknown shape type: {funcType}[/]");
                 return -1;
             }
-  
+
             _functionsRepository.AddFunction(function);
             AnsiConsole.MarkupLine("[green1]Inserting to the end of the list![/]");
 
             return 0;
         }
 
-        
+
     }
 }

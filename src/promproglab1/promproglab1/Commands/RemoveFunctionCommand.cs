@@ -13,7 +13,7 @@ namespace PromProgLab1.Commands
 
         public RemoveFunctionCommand(IFunctionsRepository functionsRepository)
         {
-            _functionsRepository = functionsRepository; 
+            _functionsRepository = functionsRepository;
         }
 
         public override int Execute([NotNull] CommandContext context, [NotNull] RemoveFunctionSettings settings)

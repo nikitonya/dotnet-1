@@ -13,7 +13,7 @@ namespace PromProgLab1.Commands
 
         public ComparisonFunctionCommand(IFunctionsRepository functionsRepository)
         {
-            _functionsRepository = functionsRepository; 
+            _functionsRepository = functionsRepository;
         }
 
         public override int Execute([NotNull] CommandContext context, [NotNull] ComparisonFunctionSettings settings)
@@ -25,7 +25,7 @@ namespace PromProgLab1.Commands
             {
                 return -1;
             }
-            
+
             bool isEqual = _functionsRepository.ComparisonFunction(index1, index2);
             AnsiConsole.MarkupLine($"[deepskyblue1]Functions {index1} and {index2} {(isEqual ? "are" : "are not")} equal![/]");
             return 0;

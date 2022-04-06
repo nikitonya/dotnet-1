@@ -25,7 +25,7 @@
 
         public override bool Equals(object obj)
         {
-            if (obj is not LinearFunction other) 
+            if (obj is not LinearFunction other)
                 return false;
             return K == other.K && B == other.B;
         }

@@ -18,6 +18,6 @@ namespace PromProgLab1.Model
         public abstract override string ToString();
 
         public abstract override int GetHashCode();
-        
+
     }
 }

@@ -3,7 +3,6 @@ using PromProgLab1.Repositories;
 using Spectre.Console;
 using Spectre.Console.Cli;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 
 namespace PromProgLab1.Commands
 {
@@ -15,7 +14,7 @@ namespace PromProgLab1.Commands
 
         public MinFunctionCommand(IFunctionsRepository functionsRepository)
         {
-            _functionsRepository = functionsRepository; 
+            _functionsRepository = functionsRepository;
         }
 
         public override int Execute([NotNull] CommandContext context, [NotNull] MinFunctionSetting settings)
@@ -34,19 +33,19 @@ namespace PromProgLab1.Commands
 
             foreach (Function func in functions)
             {
-                if(func.GetValue(value) < min)
+                if (func.GetValue(value) < min)
                 {
                     min = func.GetValue(value);
                     minFunc = func.ToString();
                 }
-                
+
             }
-            AnsiConsole.MarkupLine($"[green1]Min unction {minFunc} value is {min}[/]");
+            AnsiConsole.MarkupLine($"[green1]Min function {minFunc} value is {min}[/]");
 
 
             return 0;
         }
 
-        
+
     }
 }

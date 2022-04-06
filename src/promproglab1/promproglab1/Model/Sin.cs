@@ -19,7 +19,7 @@ namespace PromProgLab1.Model
 
         public override double GetValue(double x)
         {
-            return A*Math.Sin(x);
+            return A * Math.Sin(x);
         }
 
         public override bool Equals(object obj)

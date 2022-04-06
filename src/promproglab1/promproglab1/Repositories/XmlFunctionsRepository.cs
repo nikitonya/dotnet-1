@@ -50,7 +50,7 @@ namespace PromProgLab1.Repositories
             {
                 if (function == null)
                     throw new ArgumentNullException(nameof(function));
-                
+
                 if (index < 0 || index > _functions.Count)
                 {
                     throw new ArgumentOutOfRangeException(nameof(index));
@@ -112,6 +112,6 @@ namespace PromProgLab1.Repositories
             }
             else
                 throw new ArgumentException("Index is out of range");
-        }  
+        }
     }
 }

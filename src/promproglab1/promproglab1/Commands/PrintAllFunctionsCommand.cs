@@ -16,7 +16,7 @@ namespace PromProgLab1.Commands
         private readonly IFunctionsRepository _functionsRepository;
         public PrintAllFunctionsCommand(IFunctionsRepository functionsRepository)
         {
-            _functionsRepository = functionsRepository; 
+            _functionsRepository = functionsRepository;
         }
         public override int Execute([NotNull] CommandContext context, [NotNull] GetAllFunctionsSettings settings)
         {
