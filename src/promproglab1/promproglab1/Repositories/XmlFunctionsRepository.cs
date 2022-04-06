@@ -1,16 +1,12 @@
 ﻿using promproglab1.Model;
-using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace promproglab1.Repositories
 {
-     public class XmlFunctionsRepository : IFunctionsRepository
+    public class XmlFunctionsRepository : IFunctionsRepository
     {
         private List<Function> _functions;
 
@@ -25,7 +21,6 @@ namespace promproglab1.Repositories
                 _functions = new List<Function>();
                 return;
             }
-
             var xmlSerializer = new XmlSerializer(typeof(List<Function>));
             using var fileStream = new FileStream(StorageFileName, FileMode.Open);
             _functions = (List<Function>)xmlSerializer.Deserialize(fileStream);
@@ -72,7 +67,6 @@ namespace promproglab1.Repositories
             }
         }
 
-
         public void RemoveFunction(int index)
         {
             ReadFromFile();
@@ -107,8 +101,6 @@ namespace promproglab1.Repositories
         public bool ComparisonFunction(int index1, int index2)
         {
             ReadFromFile();
-            
-
             if (_functions[index1] != null && _functions[index2] != null)
             {
                 if (_functions[index1].GetType() == _functions[index2].GetType())
@@ -120,9 +112,6 @@ namespace promproglab1.Repositories
             }
             else
                 throw new ArgumentException("Index is out of range");
-
-        }
-
-        
+        }  
     }
 }

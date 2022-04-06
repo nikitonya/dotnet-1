@@ -23,21 +23,36 @@ namespace promproglab1.Commands
             var functions = _functionsRepository.GetFunctions();
 
             var table = new Table();
-            //table.AddColumn("Index");
-            table.AddColumn("Type of function");
-            table.AddColumn("View");
-            //table.AddColumn("X");
-            table.AddColumn("Value");
-            table.AddColumn("Derivative");
+            var counter = 0;
+            table.AddColumn("[royalblue1]Type of function[/]");
+            table.AddColumn("[royalblue1]Function[/]");
+            table.AddColumn("[royalblue1]Value[/]");
+            table.AddColumn("[royalblue1]Derivative[/]");
 
 
-            var x = AnsiConsole.Prompt(new TextPrompt<double>("[blue]Введите число X = [/]"));
-
-            foreach (Function func in functions)
+            var x = AnsiConsole.Prompt(new TextPrompt<double>("[deepskyblue1]Enter a number X = [/]"));
+            if (functions != null)
             {
-                table.AddRow(func.GetType().Name, func.ToString(),
-                    func.GetValue(x).ToString(), func.GetDerivative().ToString());
+                foreach (Function func in functions)
+                {
+                    if (counter < 10)
+                    {
+                        table.AddRow(func.GetType().Name, func.ToString(),
+                            func.GetValue(x).ToString(), func.GetDerivative().ToString());
+                        counter++;
+                    }
+                    else
+                    {
+                        table.AddRow("...", "...", "...", "...");
+                        break;
+                    }
+                }
             }
+            else
+            {
+                table.AddRow("null", "null", "null");
+            }
+
             AnsiConsole.Write(table);
             return 0;
         }

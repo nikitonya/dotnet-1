@@ -19,9 +19,9 @@ namespace promproglab1.Commands
 
         public override int Execute([NotNull] CommandContext context, [NotNull] RemoveFunctionSettings settings)
         {
-            var index = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Введите индекс, по которому нужно удалить объект = [/]"));
+            var index = AnsiConsole.Prompt(new TextPrompt<int>($"[deepskyblue1]Enter the index by which you want to delete the object = [/]"));
             _functionsRepository.RemoveFunction(index);
-            AnsiConsole.MarkupLine("Deletion completed successfully");
+            AnsiConsole.MarkupLine("[green1]Deletion completed successfully![/]");
             return 0;
         }
     }

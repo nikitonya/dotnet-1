@@ -19,8 +19,8 @@ namespace promproglab1.Commands
 
         public override int Execute([NotNull] CommandContext context, [NotNull] ComparisonFunctionSettings settings)
         {
-            var index1 = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Enter the index of the first object to compare = [/]"));
-            var index2 = AnsiConsole.Prompt(new TextPrompt<int>($"[blue]Enter the index of the second object to compare = [/]"));
+            var index1 = AnsiConsole.Prompt(new TextPrompt<int>($"[aqua]Enter the index of the first object to compare = [/]"));
+            var index2 = AnsiConsole.Prompt(new TextPrompt<int>($"[aqua]Enter the index of the second object to compare = [/]"));
 
             if (index1 < 0 || index2 < 0)
             {
@@ -29,11 +29,11 @@ namespace promproglab1.Commands
 
             if (_functionsRepository.ComparisonFunction(index1, index2) == true)
             {
-                AnsiConsole.MarkupLine("The objects are equal");
+                AnsiConsole.MarkupLine("[green1]The objects are equal![/]");
             }
             else
             {
-                AnsiConsole.MarkupLine("Objects are not equal");
+                AnsiConsole.MarkupLine("[red1]Objects are not equal![/]");
             }
             return 0;
         }

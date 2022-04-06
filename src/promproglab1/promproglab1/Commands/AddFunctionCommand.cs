@@ -20,40 +20,41 @@ namespace promproglab1.Commands
         public override int Execute([NotNull] CommandContext context, [NotNull] AddFunctionSettings settings)
         {
             var funcType = AnsiConsole.Prompt(new SelectionPrompt<string>()
-                    .Title("Выберите тип функции: ")
-                    .AddChoices("Константа", "Линейная функция", "Квадратичная функция", "Синус", "Косинус"));
+                    .Title("[aqua]Select the type of function: " +
+                    "[/]")
+                    .AddChoices("[lime]Const[/]", "[lime]Linear function[/]", "[lime]Quadratic function[/]", "[lime]Sin[/]", "[lime]Cos[/]"));
 
             Function function = funcType switch
             {
-                "Константа" => new Const(
-                    AnsiConsole.Prompt(new TextPrompt<double>("[blue]Число a[/]"))
+                "[lime]Const[/]" => new Const(
+                    AnsiConsole.Prompt(new TextPrompt<double>("[deepskyblue1]Number a = [/]"))
                     ),
-                "Линейная функция" => new LinearFunction(
-                    AnsiConsole.Prompt(new TextPrompt<double>("[blue]Число k[/]")),
-                    AnsiConsole.Prompt(new TextPrompt<double>("[blue]Число b[/]"))
+                "[lime]Linear function[/]" => new LinearFunction(
+                    AnsiConsole.Prompt(new TextPrompt<double>("[deepskyblue1]Coefficient k = [/]")),
+                    AnsiConsole.Prompt(new TextPrompt<double>("[deepskyblue1]Coefficient b = [/]"))
                     ),
-                "Квадратичная функция" => new Quadratic(
-                    AnsiConsole.Prompt(new TextPrompt<double>("[blue]Число a[/]")),
-                    AnsiConsole.Prompt(new TextPrompt<double>("[blue]Число b[/]")),
-                    AnsiConsole.Prompt(new TextPrompt<double>("[blue]Число c[/]"))
+                "[lime]Quadratic function[/]" => new Quadratic(
+                    AnsiConsole.Prompt(new TextPrompt<double>("[deepskyblue1]Coefficient a = [/]")),
+                    AnsiConsole.Prompt(new TextPrompt<double>("[deepskyblue1]Coefficient b = [/]")),
+                    AnsiConsole.Prompt(new TextPrompt<double>("[deepskyblue1]Coefficient c = [/]"))
                     ),
-                "Синус" => new Sin(
-                    AnsiConsole.Prompt(new TextPrompt<double>("[blue]Число a[/]"))
+                "[lime]Sin[/]" => new Sin(
+                    AnsiConsole.Prompt(new TextPrompt<double>("[deepskyblue1]Coefficient a = [/]"))
                     ),
-                "Косинус" => new Cos(
-                    AnsiConsole.Prompt(new TextPrompt<double>("[blue]Число a[/]"))
+                "[lime]Cos[/]" => new Cos(
+                    AnsiConsole.Prompt(new TextPrompt<double>("[deepskyblue1]Coefficient a = [/]"))
                     ),
                 _ => null
             };
 
             if (function == null)
             {
-                AnsiConsole.MarkupLine($"Неизвестный тип фигуры: {funcType}");
+                AnsiConsole.MarkupLine($"[red1]Unknown shape type: {funcType}[/]");
                 return -1;
             }
   
             _functionsRepository.AddFunction(function);
-            AnsiConsole.MarkupLine("Вставка в конец списка");
+            AnsiConsole.MarkupLine("[green1]Inserting to the end of the list![/]");
 
             return 0;
         }

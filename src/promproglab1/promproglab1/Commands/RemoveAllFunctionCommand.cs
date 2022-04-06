@@ -20,7 +20,7 @@ namespace promproglab1.Commands
         public override int Execute([NotNull] CommandContext context, [NotNull] RemoveAllFunctionSettings settings)
         {
             _functionsRepository.RemoveAllFunction();
-            AnsiConsole.MarkupLine("Deletion of all objects has been completed successfully!");
+            AnsiConsole.MarkupLine("[green1]Deletion of all objects has been completed successfully![/]");
             return 0;
         }
     }
