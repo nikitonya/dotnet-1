@@ -1,7 +1,7 @@
-﻿using promproglab1.Model;
+﻿using PromProgLab1.Model;
 using System.Collections.Generic;
 
-namespace promproglab1.Repositories
+namespace PromProgLab1.Repositories
 {
     public interface IFunctionsRepository
     {

@@ -1,11 +1,11 @@
-﻿using promproglab1.Model;
-using promproglab1.Repositories;
+﻿using PromProgLab1.Model;
+using PromProgLab1.Repositories;
 using Spectre.Console;
 using Spectre.Console.Cli;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace promproglab1.Commands
+namespace PromProgLab1.Commands
 {
     public class MinFunctionCommand : Command<MinFunctionCommand.MinFunctionSetting>
     {
@@ -30,15 +30,18 @@ namespace promproglab1.Commands
             int value = AnsiConsole.Prompt(new TextPrompt<int>(
                 "[deepskyblue1]Enter the value for which you want to find the minimum function = [/]"));
             var min = functions[0].GetValue(value);
-            foreach(Function func in functions)
+            var minFunc = functions[0].ToString();
+
+            foreach (Function func in functions)
             {
                 if(func.GetValue(value) < min)
                 {
                     min = func.GetValue(value);
+                    minFunc = func.ToString();
                 }
+                
             }
-            
-            AnsiConsole.MarkupLine($"[green1]Min function is {min}[/]");
+            AnsiConsole.MarkupLine($"[green1]Min unction {minFunc} value is {min}[/]");
 
 
             return 0;

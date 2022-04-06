@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace promproglab1.Model
+namespace PromProgLab1.Model
 {
     public class Sin : Function
     {

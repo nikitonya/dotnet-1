@@ -1,7 +1,7 @@
 ﻿using Lab1.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
-using promproglab1.Commands;
-using promproglab1.Repositories;
+using PromProgLab1.Commands;
+using PromProgLab1.Repositories;
 using Spectre.Console.Cli;
 
 namespace PromProgLab1

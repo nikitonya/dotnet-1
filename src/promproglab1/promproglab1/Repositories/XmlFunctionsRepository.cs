@@ -1,16 +1,16 @@
-﻿using promproglab1.Model;
+﻿using PromProgLab1.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace promproglab1.Repositories
+namespace PromProgLab1.Repositories
 {
     public class XmlFunctionsRepository : IFunctionsRepository
     {
         private List<Function> _functions;
 
-        private const string StorageFileName = "functions.xml";
+        private const string StorageFileName = "DataBase.xml";
 
         private void ReadFromFile()
         {

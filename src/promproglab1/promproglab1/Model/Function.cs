@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace promproglab1.Model
+namespace PromProgLab1.Model
 {
     [XmlInclude(typeof(Const))]
     [XmlInclude(typeof(LinearFunction))]

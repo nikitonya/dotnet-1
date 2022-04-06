@@ -1,10 +1,10 @@
-﻿using promproglab1.Model;
-using promproglab1.Repositories;
+﻿using PromProgLab1.Model;
+using PromProgLab1.Repositories;
 using Spectre.Console;
 using Spectre.Console.Cli;
 using System.Diagnostics.CodeAnalysis;
 
-namespace promproglab1.Commands
+namespace PromProgLab1.Commands
 {
     public class PrintAllFunctionsCommand : Command<PrintAllFunctionsCommand.GetAllFunctionsSettings>
     {
