@@ -17,17 +17,43 @@ namespace Chat
 
             connection.On<string, string>("ReceiveMessage", (user, message) =>
             {
-                AnsiConsole.MarkupLine($"[red]{user}[/]: [blue]{message} [/]");
+                AnsiConsole.MarkupLine($"[bold yellow]{user}[/]: [blue]{message} [/]");
+            });
+
+            connection.On<string, string, string>("ReceiveMessageFromGroup", (groupName, user, message) =>
+            {
+                AnsiConsole.MarkupLine($"[bold red]{groupName}[/] [bold yellow]{user}[/]: [blue]{message} [/]");
             });
 
             await connection.StartAsync();
+
+            await connection.InvokeAsync("Enter", userName);
+
             while (true)
             {
                 var message = AnsiConsole.Ask<string>($"{userName}: ");
 
                 if (message == "exit") break;
 
-                connection.InvokeAsync("SendMessage", userName, message);
+                if (message.StartsWith("+"))
+                {
+                    await connection.InvokeAsync("JoinGroup", userName, message.Split('+', ' ')[1]);
+                }
+                else if (message.StartsWith("-"))
+                {
+                    await connection.InvokeAsync("LeaveGroup", userName, message.Split('-', ' ')[1]);
+                }
+                else if (message.StartsWith('#'))
+                {
+                    var groupName = message.Split('#', ' ')[1];
+                    var messageToSend = message.Replace('#' + groupName, "");
+                    await connection.InvokeAsync("SendMessageToGroup", groupName, userName, messageToSend);
+                }
+                else
+                {
+                    await connection.InvokeAsync("SendMessage", userName, message);
+                }
+                
             }
 
 
