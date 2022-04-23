@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ChatServer
 {
     public class ChatHub : Hub
     {
+        private static Dictionary<string, string> Connections = new();
         public Task SendMessage(string user, string message)
         {
             return Clients.Others.SendAsync("ReceiveMessage", user, message);
@@ -12,6 +14,7 @@ namespace ChatServer
 
         public Task Enter(string user)
         {
+            Connections[user] = Context.ConnectionId;
             return Clients.Others.SendAsync("ReceiveMessage", user, $"{user} is connected");
         }
 
@@ -32,6 +35,10 @@ namespace ChatServer
             return Clients.Group(groupName).SendAsync("ReceiveMessageFromGroup", groupName, user, message);
         }
 
+        public Task SendMessageToUser(string user, string message, string receiver)
+        {
+            return Clients.Client(Connections[receiver]).SendAsync("ReceiveDirectMessage", user, message);
+        }
 
     }
 }

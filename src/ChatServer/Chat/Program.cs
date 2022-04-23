@@ -25,6 +25,11 @@ namespace Chat
                 AnsiConsole.MarkupLine($"[bold red]{groupName}[/] [bold yellow]{user}[/]: [blue]{message} [/]");
             });
 
+            connection.On<string, string>("ReceiveDirectMessage", (user, message) =>
+            {
+                AnsiConsole.MarkupLine($"[bold red]{user}[/]: [blue]{message} [/]");
+            });
+
             await connection.StartAsync();
 
             await connection.InvokeAsync("Enter", userName);
@@ -48,6 +53,12 @@ namespace Chat
                     var groupName = message.Split('#', ' ')[1];
                     var messageToSend = message.Replace('#' + groupName, "");
                     await connection.InvokeAsync("SendMessageToGroup", groupName, userName, messageToSend);
+                }
+                else if (message.StartsWith('@'))
+                {
+                    var receiver = message.Split('@', ' ')[1];
+                    var messageToSend = message.Replace('@' + receiver, "");
+                    await connection.InvokeAsync("SendMessageToUser", userName, messageToSend, receiver);
                 }
                 else
                 {
