@@ -8,6 +8,5 @@ namespace ChatClient.MVVM.ViewModel
 {
     class MainViewModel
     {
-
     }
 }
